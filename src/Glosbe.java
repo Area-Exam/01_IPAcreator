@@ -8,11 +8,7 @@ import java.net.URLConnection;
  */
 public class Glosbe extends Crawler {
 
-    URL url=null;
-    URLConnection spoof=null;
-    BufferedReader in=null;
-    String strLine = "";
-    boolean added=false;
+
 
     //Args ->   "Glosbe" "../Output/rejectWordsCambridge.txt" "../Output/rejectWordsGlosbe.txt" "../Output/IPAglosbe.txt"
     //1599618.hn1

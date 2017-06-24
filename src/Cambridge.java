@@ -20,11 +20,7 @@ public class Cambridge extends Crawler {
 
 
 
-  URL url=null;
-  URLConnection spoof=null;
-  BufferedReader in=null;
-  String strLine = "";
-  boolean added=false;
+
 
   public void fetchIPAof(String word){
     added=false;

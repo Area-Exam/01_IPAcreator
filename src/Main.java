@@ -27,6 +27,9 @@ public class Main {
     else if (machine.equalsIgnoreCase("Glosbe")) {
       c = new Glosbe(source, rejected,ipa);
     }
+    else if (machine.equalsIgnoreCase("Oxford")){
+      c=new Oxford(source, rejected,ipa);
+    }
 
     if(c!=null) {
       c.run();

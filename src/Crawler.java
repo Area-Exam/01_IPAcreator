@@ -1,4 +1,6 @@
 import java.io.*;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
 //import java.util.stream;
@@ -13,6 +15,14 @@ public abstract class Crawler {
   //HashMap<String,HashSet<String>> wordIPAs=new HashMap<String, HashSet<String>>();
   HashMap<String,String> wordIPAs=new HashMap<String, String>();
   ArrayList<String> rejects=new ArrayList<String>();
+
+  //Variables for "fetchIPAof"
+  URL url=null;
+  URLConnection spoof=null;
+  BufferedReader in=null;
+  String strLine = "";
+  boolean added=false;
+
 
   abstract  public void fetchIPAof(String word);
 
