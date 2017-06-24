@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="CambridgeIPA">
-    <output-path>$PROJECT_DIR$/</output-path>
+  <artifact type="jar" build-on-make="true" name="01_IPAcreator:jar">
+    <output-path>$PROJECT_DIR$/01_IPAcreator_jar</output-path>
     <root id="archive" name="01_IPAcreator.jar">
       <element id="module-output" name="01_IPAcreator" />
     </root>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="01_IPAcreator">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/01_IPAcreator.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

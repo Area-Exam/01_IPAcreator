@@ -22,6 +22,7 @@ public class Glosbe extends Crawler {
     }
 
 
+
     @Override
     public void fetchIPAof(String word) {
         added=false;
@@ -35,7 +36,7 @@ public class Glosbe extends Crawler {
             strLine = "";
             //Loop through every line in the source
             // HashSet<String> ipaSet=new HashSet<String>();
-          //  System.out.println(word);
+            //  System.out.println(word);
 
             while ((strLine = in.readLine()) != null) {
                 if(strLine.contains("IPA:")) {
@@ -43,19 +44,19 @@ public class Glosbe extends Crawler {
                     strLine=strLine.substring(strLine.indexOf("<span>"),strLine.lastIndexOf("</span>"));
                     strLine=strLine.substring(strLine.indexOf("/")+1,strLine.length());
                     strLine=strLine.substring(0,strLine.indexOf("/"));
-             //       if(strLine.contains(",")){
-             //          strLine=strLine.substring(0,strLine.lastIndexOf(",")-1);
-             //       }
+                    //       if(strLine.contains(",")){
+                    //          strLine=strLine.substring(0,strLine.lastIndexOf(",")-1);
+                    //       }
                     //System.out.println(strLine);
                     //System.out.println(strLine.lastIndexOf(">")+1);
                     //System.out.println(strLine.lastIndexOf("<"));
-            //        strLine=strLine.substring(strLine.lastIndexOf(">")+1,strLine.lastIndexOf("<"));
+                    //        strLine=strLine.substring(strLine.lastIndexOf(">")+1,strLine.lastIndexOf("<"));
                     // ipaSet.add(strLine);
                     // System.out.println(strLine);
 
                     wordIPAs.put(word,strLine);
                     added=true;
-                   // System.out.println(strLine);
+                    // System.out.println(strLine);
                     break;
 
 
@@ -65,7 +66,7 @@ public class Glosbe extends Crawler {
 
 
             }
-           // System.in.read();
+            // System.in.read();
             //wordIPAs.put(word,ipaSet);
             // added=true;
         }
