@@ -15,7 +15,7 @@ public class DictionaryCom extends Crawler {
 
     @Override
     public void fetchIPAof(String word) {
-     //   word="abe";
+       // word="clair";//"borgia"; //"abe";
         added=false;
         try {
             url = new URL("http://www.dictionary.com/browse/"+word); //apple
@@ -32,7 +32,7 @@ public class DictionaryCom extends Crawler {
 
 
 
-                    
+
                     while ((strLine = in.readLine()) != null && !strLine.contains("head-entry")) { //Now go down till you find "head-entry"
 
                         //Do nothing to these useless lines
@@ -58,11 +58,16 @@ public class DictionaryCom extends Crawler {
                         strLine = strLine.substring(strLine.indexOf("/"), strLine.lastIndexOf("<"));
                         strLine = strLine.substring(strLine.indexOf(">") + 1, strLine.length());
 
-                        if (strLine.contains(";")) {
+                        if (strLine.contains(";")) { //Handle where there are multiple pronunciations
                             strLine = strLine.substring(0, strLine.indexOf(";"));
                         }
 
-                        //      System.out.println(strLine);
+
+                        if(strLine.contains("dbox-pron")){ //Handle when the word is of foreign origin
+                            strLine=strLine.substring(strLine.indexOf(">")+1,strLine.length());
+                        }
+
+                 //             System.out.println(strLine);
 
                         wordIPAs.put(word, strLine);
                         added = true;
@@ -71,7 +76,7 @@ public class DictionaryCom extends Crawler {
                 }
 
             }
-              // System.exit(0);
+         //      System.exit(0);
 
         }
         catch(Exception e){
