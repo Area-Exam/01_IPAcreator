@@ -15,7 +15,7 @@ public class DictionaryCom extends Crawler {
 
     @Override
     public void fetchIPAof(String word) {
-        word="tartan";
+     //   word="abe";
         added=false;
         try {
             url = new URL("http://www.dictionary.com/browse/"+word); //apple
@@ -26,27 +26,60 @@ public class DictionaryCom extends Crawler {
             in = new BufferedReader(new InputStreamReader(spoof.getInputStream()));
             strLine = "";
 
-            System.out.println(word);
+            //System.out.println(word);
             while ((strLine = in.readLine()) != null) {
-    //            if(strLine.contains("BrE") || strLine.contains("NAmE")) {
+                if (strLine.contains("British Dictionary")) {
 
-                System.out.println(strLine);
 
-    //                wordIPAs.put(word,strLine);
-    //                added=true;
-    //                break;
-    //            }
+
+                    
+                    while ((strLine = in.readLine()) != null && !strLine.contains("head-entry")) { //Now go down till you find "head-entry"
+
+                        //Do nothing to these useless lines
+                    }
+
+                    strLine=strLine.substring(strLine.indexOf("<span class=\"me\">"),strLine.indexOf("</span>"));
+                    strLine=strLine.substring(strLine.indexOf(">")+1,strLine.length());
+
+                    //System.out.println(strLine);
+
+
+                    if (strLine.equalsIgnoreCase(word)) {  //This is because "dictionary.com" tries to be helpful and redirects to the lemma of the word. That would corrupt our data in this case!
+                      //  System.out.println(word+" "+strLine);
+
+                        while ((strLine = in.readLine()) != null && !strLine.contains("ipapron")) { //Now go down till you find "ipapron"
+
+                            //Do nothing to these useless lines
+                        }
+
+                        strLine = strLine.substring(strLine.indexOf(">/"), strLine.lastIndexOf(">/"));
+                        strLine = strLine.replace("</span>", "");
+                        strLine = strLine.replace("<span class=\"dbox-sup\">", "");
+                        strLine = strLine.substring(strLine.indexOf("/"), strLine.lastIndexOf("<"));
+                        strLine = strLine.substring(strLine.indexOf(">") + 1, strLine.length());
+
+                        if (strLine.contains(";")) {
+                            strLine = strLine.substring(0, strLine.indexOf(";"));
+                        }
+
+                        //      System.out.println(strLine);
+
+                        wordIPAs.put(word, strLine);
+                        added = true;
+                        break;
+                    }
+                }
 
             }
-               System.exit(0);
+              // System.exit(0);
 
         }
         catch(Exception e){
-            System.err.println(e.getMessage());
+           // System.err.println(e.getMessage());
         }
 
-    //    if(!added){
-    //        rejects.add(word);
-    //    }
+        if(!added){
+            rejects.add(word);
+        }
     }
 }
