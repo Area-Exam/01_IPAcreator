@@ -10,7 +10,7 @@ public class Glosbe extends Crawler {
 
 
 
-    //Args ->   "Glosbe" "../Output/rejectWordsCambridge.txt" "../Output/rejectWordsGlosbe.txt" "../Output/IPAglosbe.txt"
+    //Args ->   "Glosbe" "../Output/01_IPA/rejectWordsCambridge.txt" "../Output/01_IPA/rejectWordsGlosbe.txt" "../Output/01_IPA/IPAglosbe.txt"
     //1599618.hn1
 
     public Glosbe(String source, String rejected, String ipa) {

@@ -8,7 +8,7 @@ import java.net.URL;
  * Created by Nisansa on 6/23/2017.
  */
 public class Oxford extends Crawler {
-    //Args ->   "Oxford" "../Output/rejectWordsGlosbe_run1.txt" "../Output/rejectWordsOxford.txt" "../Output/IPAoxford.txt"
+    //Args ->   "Oxford" "../Output/01_IPA/rejectWordsGlosbe_run1.txt" "../Output/01_IPA/rejectWordsOxford.txt" "../Output/01_IPA/IPAoxford.txt"
 
 
 

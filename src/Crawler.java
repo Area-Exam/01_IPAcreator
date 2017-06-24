@@ -58,7 +58,7 @@ public abstract class Crawler {
         br.close();
       }
     } catch (Exception e) {
-
+      System.err.println(e.getMessage());
     }
   }
 
@@ -98,7 +98,7 @@ public abstract class Crawler {
       }
       writer.close();
     } catch (IOException e) {
-      // do something
+      System.err.println(e.getMessage());
     }
   }
 
@@ -112,7 +112,7 @@ public abstract class Crawler {
       }
       writer.close();
     } catch (IOException e) {
-      // do something
+      System.err.println(e.getMessage());
     }
   }
 
