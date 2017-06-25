@@ -33,6 +33,9 @@ public class Main {
     else if (machine.equalsIgnoreCase("DictionaryCom")){
       c=new DictionaryCom(source, rejected,ipa);
     }
+    else if (machine.equalsIgnoreCase("WordReference")){
+      c=new WordReference(source, rejected,ipa);
+    }
 
     if(c!=null) {
       c.run();
